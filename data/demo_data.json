@@ -1,0 +1,61 @@
+{
+  "users": [
+    {"userId": "user-001", "name": "Rahul", "email": "rahul@example.com", "password": "password123", "role": "VOLUNTEER", "deviceId": "device-001", "isActive": true, "minutesAgo": 1440},
+    {"userId": "user-002", "name": "Priya", "email": "priya@example.com", "password": "password123", "role": "RESPONDER", "deviceId": "device-002", "isActive": true, "minutesAgo": 1440},
+    {"userId": "user-003", "name": "Meera", "email": "meera@example.com", "password": "password123", "role": "SHELTER", "deviceId": "device-003", "isActive": true, "minutesAgo": 1440}
+  ],
+  "alerts": [
+    {"messageId": "alert-001", "type": "ROAD_UPDATE", "roadId": "road-nh44", "status": "BLOCKED", "reason": "Fallen tree blocking both lanes after the storm", "lat": 13.1102, "lon": 80.1846, "priority": "HIGH", "createdAt": null, "updatedAt": null, "expiresAt": null, "sourceDevice": "device-002", "sourceRole": "RESPONDER", "createdBy": "user-002", "verified": true, "verificationStatus": "VERIFIED", "hopCount": 0, "maxHops": 5, "minutesAgo": 10},
+    {"messageId": "alert-002", "type": "DANGER_ZONE", "roadId": "road-river", "status": "BLOCKED", "reason": "River bank overflow - do not approach within 200m", "lat": 13.0865, "lon": 80.2401, "priority": "CRITICAL", "createdAt": null, "updatedAt": null, "expiresAt": null, "sourceDevice": "device-001", "sourceRole": "VOLUNTEER", "createdBy": "user-001", "verified": false, "verificationStatus": "CORROBORATED", "hopCount": 1, "maxHops": 5, "minutesAgo": 25},
+    {"messageId": "alert-003", "type": "SOS", "roadId": null, "status": null, "reason": "Family of 4 stranded on rooftop near Mylapore", "lat": 13.0336, "lon": 80.2357, "priority": "CRITICAL", "createdAt": null, "updatedAt": null, "expiresAt": null, "sourceDevice": "device-001", "sourceRole": "VOLUNTEER", "createdBy": "user-001", "verified": true, "verificationStatus": "VERIFIED", "hopCount": 0, "maxHops": 5, "minutesAgo": 45},
+    {"messageId": "alert-004", "type": "GENERAL_EMERGENCY", "roadId": "road-ek05", "status": "CAUTION", "reason": "Power outage reported across the district", "lat": 13.0475, "lon": 80.2822, "priority": "MEDIUM", "createdAt": null, "updatedAt": null, "expiresAt": null, "sourceDevice": "device-003", "sourceRole": "SHELTER", "createdBy": "user-003", "verified": false, "verificationStatus": "OUTDATED", "hopCount": 2, "maxHops": 5, "minutesAgo": 150},
+    {"messageId": "alert-005", "type": "SHELTER_UPDATE", "roadId": null, "status": null, "reason": "shelter-002 nearing capacity - send support", "lat": 13.1211, "lon": 80.2413, "priority": "LOW", "createdAt": null, "updatedAt": null, "expiresAt": null, "sourceDevice": "device-003", "sourceRole": "SHELTER", "createdBy": "user-003", "verified": false, "verificationStatus": "UNVERIFIED", "hopCount": 0, "maxHops": 5, "minutesAgo": 5},
+    {"messageId": "alert-006", "type": "ROAD_UPDATE", "roadId": "road-ow02", "status": "CAUTION", "reason": "Water logging up to 30cm at the underpass", "lat": 13.1067, "lon": 80.2206, "priority": "MEDIUM", "createdAt": null, "updatedAt": null, "expiresAt": null, "sourceDevice": "device-001", "sourceRole": "VOLUNTEER", "createdBy": "user-001", "verified": false, "verificationStatus": "UNVERIFIED", "hopCount": 1, "maxHops": 5, "minutesAgo": 90},
+    {"messageId": "alert-007", "type": "GENERAL_EMERGENCY", "roadId": null, "status": "UNKNOWN", "reason": "Old request for medical supplies - now expired", "lat": 13.065, "lon": 80.21, "priority": "LOW", "createdAt": null, "updatedAt": null, "expiresAt": null, "sourceDevice": "device-001", "sourceRole": "VOLUNTEER", "createdBy": "user-001", "verified": false, "verificationStatus": "UNVERIFIED", "hopCount": 3, "maxHops": 5, "minutesAgo": 200, "expiresInMinutes": -30}
+  ],
+  "routes": [
+    {"routeId": "route-nh44", "name": "NH-44 Highway", "from": "Chennai", "to": "Tiruvallur", "status": "SAFE", "version": 2, "lastUpdated": null, "lastVerified": null, "createdAt": null, "verificationStatus": "VERIFIED", "lastSourceDevice": "device-002", "minutesAgo": 15, "history": [
+      {"version": 1, "status": "CAUTION", "sourceDevice": "device-002", "reason": "Initial assessment"},
+      {"version": 2, "status": "SAFE", "sourceDevice": "device-002", "reason": "Road cleared by team"}
+    ], "conflicts": []},
+    {"routeId": "route-mt01", "name": "Mount Road", "from": "Central", "to": "Adyar", "status": "BLOCKED", "version": 3, "lastUpdated": null, "lastVerified": null, "createdAt": null, "verificationStatus": "CONFLICTED", "lastSourceDevice": "device-002", "minutesAgo": 20, "history": [
+      {"version": 1, "status": "CAUTION", "sourceDevice": "device-002", "reason": "Water rising"},
+      {"version": 2, "status": "BLOCKED", "sourceDevice": "device-002", "reason": "Vehicle stuck"},
+      {"version": 3, "status": "BLOCKED", "sourceDevice": "device-002", "reason": "Fully flooded"}
+    ], "conflicts": [
+      {"status": "SAFE", "version": 3, "sourceDevice": "device-001", "reason": "Water receded on my side"}
+    ]},
+    {"routeId": "route-ow02", "name": "Old Washermanpet Link", "from": "Washermanpet", "to": "Royapuram", "status": "CAUTION", "version": 1, "lastUpdated": null, "lastVerified": null, "createdAt": null, "verificationStatus": "UNVERIFIED", "lastSourceDevice": "device-001", "minutesAgo": 100, "history": [
+      {"version": 1, "status": "CAUTION", "sourceDevice": "device-001", "reason": "Underpass water logging"}
+    ], "conflicts": []},
+    {"routeId": "route-ek05", "name": "East Coast Road", "from": "Santhome", "to": "Mylapore", "status": "UNKNOWN", "version": 1, "lastUpdated": null, "lastVerified": null, "createdAt": null, "verificationStatus": "OUTDATED", "lastSourceDevice": "device-003", "minutesAgo": 200, "history": [
+      {"version": 1, "status": "UNKNOWN", "sourceDevice": "device-003", "reason": "No contact from field team"}
+    ], "conflicts": []}
+  ],
+  "route_updates": [
+    {"updateId": "upd-seed-01", "routeId": "route-nh44", "status": "CAUTION", "version": 1, "previousStatus": "UNKNOWN", "previousVersion": 1, "sourceDevice": "device-002", "reason": "Initial assessment", "reportedAt": null, "receivedAt": null, "outcome": "applied", "minutesAgo": 60},
+    {"updateId": "upd-seed-02", "routeId": "route-nh44", "status": "SAFE", "version": 2, "previousStatus": "CAUTION", "previousVersion": 1, "sourceDevice": "device-002", "reason": "Road cleared by team", "reportedAt": null, "receivedAt": null, "outcome": "applied", "minutesAgo": 15},
+    {"updateId": "upd-seed-03", "routeId": "route-mt01", "status": "BLOCKED", "version": 3, "previousStatus": "BLOCKED", "previousVersion": 2, "sourceDevice": "device-002", "reason": "Fully flooded", "reportedAt": null, "receivedAt": null, "outcome": "applied", "minutesAgo": 20},
+    {"updateId": "upd-seed-04", "routeId": "route-mt01", "status": "SAFE", "version": 3, "previousStatus": "BLOCKED", "previousVersion": 3, "sourceDevice": "device-001", "reason": "Water receded on my side", "reportedAt": null, "receivedAt": null, "outcome": "conflict", "minutesAgo": 18},
+    {"updateId": "upd-seed-05", "routeId": "route-ow02", "status": "CAUTION", "version": 1, "previousStatus": "UNKNOWN", "previousVersion": 1, "sourceDevice": "device-001", "reason": "Underpass water logging", "reportedAt": null, "receivedAt": null, "outcome": "applied", "minutesAgo": 100}
+  ],
+  "shelters": [
+    {"shelterId": "shelter-001", "name": "Community Hall North", "latitude": 13.1052, "longitude": 80.1978, "capacity": 200, "occupied": 120, "status": "OPEN", "lastUpdated": null, "createdAt": null, "minutesAgo": 30},
+    {"shelterId": "shelter-002", "name": "Government School Ground", "latitude": 13.1211, "longitude": 80.2413, "capacity": 150, "occupied": 140, "status": "NEAR_FULL", "lastUpdated": null, "createdAt": null, "minutesAgo": 20},
+    {"shelterId": "shelter-003", "name": "Nehru Stadium Shelter", "latitude": 13.0622, "longitude": 80.2541, "capacity": 500, "occupied": 500, "status": "FULL", "lastUpdated": null, "createdAt": null, "minutesAgo": 45},
+    {"shelterId": "shelter-004", "name": "Town Hall Shelter", "latitude": 13.09, "longitude": 80.275, "capacity": 100, "occupied": 10, "status": "CLOSED", "lastUpdated": null, "createdAt": null, "minutesAgo": 130}
+  ],
+  "locations": [
+    {"locationId": "loc-001", "name": "City General Hospital", "type": "HOSPITAL", "latitude": 13.0827, "longitude": 80.2707, "description": "24x7 emergency wing with generator backup", "createdBy": "user-002", "createdAt": null, "updatedAt": null, "minutesAgo": 120},
+    {"locationId": "loc-002", "name": "Community Hall Shelter", "type": "SHELTER", "latitude": 13.1052, "longitude": 80.1978, "description": "Primary relief shelter for the north zone", "createdBy": "user-003", "createdAt": null, "updatedAt": null, "minutesAgo": 90},
+    {"locationId": "loc-003", "name": "Helipad Rescue Point", "type": "RESCUE_POINT", "latitude": 13.05, "longitude": 80.21, "description": "Rooftop helipad for aerial rescue", "createdBy": "user-002", "createdAt": null, "updatedAt": null, "minutesAgo": 60},
+    {"locationId": "loc-004", "name": "Flooded Underpass", "type": "DANGER_ZONE", "latitude": 13.1067, "longitude": 80.2206, "description": "Underpass under 30cm of water", "createdBy": "user-001", "createdAt": null, "updatedAt": null, "minutesAgo": 85},
+    {"locationId": "loc-005", "name": "Community Water Point", "type": "WATER_POINT", "latitude": 13.118, "longitude": 80.26, "description": "Hand pump - still functional", "createdBy": "user-001", "createdAt": null, "updatedAt": null, "minutesAgo": 40},
+    {"locationId": "loc-006", "name": "Evacuation Centre Central", "type": "EVACUATION_CENTRE", "latitude": 13.06, "longitude": 80.23, "description": "Buses stage here every 30 minutes", "createdBy": "user-002", "createdAt": null, "updatedAt": null, "minutesAgo": 30}
+  ],
+  "messages": [
+    {"messageId": "msg-001", "message": "Water and blankets urgently needed at shelter-002", "messageType": "REQUEST", "createdBy": "user-003", "sourceRole": "SHELTER", "sourceDevice": "device-003", "createdAt": null, "expiresAt": null, "hopCount": 1, "maxHops": 5, "minutesAgo": 12},
+    {"messageId": "msg-002", "message": "Road clearance team dispatched to NH-44", "messageType": "INFO", "createdBy": "user-002", "sourceRole": "RESPONDER", "sourceDevice": "device-002", "createdAt": null, "expiresAt": null, "hopCount": 0, "maxHops": 5, "minutesAgo": 35},
+    {"messageId": "msg-003", "message": "SOS: 5 people trapped near the river bank", "messageType": "EMERGENCY", "createdBy": "user-001", "sourceRole": "VOLUNTEER", "sourceDevice": "device-001", "createdAt": null, "expiresAt": null, "hopCount": 2, "maxHops": 5, "minutesAgo": 5, "expiresInMinutes": 180}
+  ]
+}
